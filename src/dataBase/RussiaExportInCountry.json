@@ -1,0 +1,89 @@
+[
+    {
+        "name": "Maldova",
+        "product": [
+            {
+                "date": "23 06 2023",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412412
+            },
+            {
+                "date": "23 07 2013",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 4124124
+            },
+            {
+                "date": "08 06 2022",
+                "product": "product2",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412421
+            },
+            {
+                "date": "01 07 2023",
+                "product": "product3",
+                "countryImportingGoods": "Kazahstan",
+                "batchVolumeInPieces": 434324
+            }
+        ]
+    },
+    {
+        "name": "Kazahstan",
+        "product": [
+            {
+                "date": "23 06 2023",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412412
+            },
+            {
+                "date": "23 07 2013",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 4124124
+            },
+            {
+                "date": "08 06 2022",
+                "product": "product2",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412421
+            },
+            {
+                "date": "01 07 2023",
+                "product": "product3",
+                "countryImportingGoods": "Kazahstan",
+                "batchVolumeInPieces": 434324
+            }
+        ]
+    },
+    {
+        "name": "China",
+        "product": [
+            {
+                "date": "23 06 2023",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412412
+            },
+            {
+                "date": "23 07 2013",
+                "product": "product1",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 4124124
+            },
+            {
+                "date": "08 06 2022",
+                "product": "product2",
+                "countryImportingGoods": "Chine",
+                "batchVolumeInPieces": 412421
+            },
+            {
+                "date": "01 07 2023",
+                "product": "product3",
+                "countryImportingGoods": "Kazahstan",
+                "batchVolumeInPieces": 434324
+            }
+        ]
+    }
+]
