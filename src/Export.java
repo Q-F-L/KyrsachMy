@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class Export extends Product{
     private String date; // Дата
-    private Product product; // Продукт
-    private Country countryImportingGoods; // Cтранf, импортирующей товар
+    private String product; // Продукт
+    private String countryImportingGoods; // Cтрана, импортирующей товар
     private int batchVolumeInPieces; // Объем партии в штуках
 
-    Export() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите дату (dd MM yyyy) Пример: 21 06 2023: ");
-        setDate(scanner.nextLine());
-        System.out.println("Введите название продукта: ");
-        setProduct(new Product());
-        System.out.println("Введите страны, импортирующей товар: ");
-        setCountryImportingGoods(new Country());
-        System.out.println("Введите объем партии в штуках: ");
-        setBatchVolumeInPieces(scanner.nextInt());
-        scanner.close();
-    }
+    // Export() {
+    //     Scanner scanner = new Scanner(System.in);
+    //     System.out.println("Введите дату (dd MM yyyy) Пример: 21 06 2023: ");
+    //     setDate(scanner.nextLine());
+    //     System.out.println("Введите название продукта: ");
+    //     setProduct(new Product());
+    //     System.out.println("Введите страны, импортирующей товар: ");
+    //     setCountryImportingGoods(new Country());
+    //     System.out.println("Введите объем партии в штуках: ");
+    //     setBatchVolumeInPieces(scanner.nextInt());
+    //     scanner.close();
+    // }
 
     public void setDate(String date) {
         if (date.isEmpty()) {
@@ -28,11 +28,11 @@ public class Export extends Product{
         }
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(String product) {
         this.product = product;
     }
 
-    public void setCountryImportingGoods(Country countryImportingGoods) {
+    public void setCountryImportingGoods(String countryImportingGoods) {
         this.countryImportingGoods = countryImportingGoods;
     }
 
@@ -51,11 +51,11 @@ public class Export extends Product{
         return date;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public Country getCountryImportingGoods() {
+    public String getCountryImportingGoods() {
         return countryImportingGoods;
     }
 

@@ -5,10 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -87,11 +89,11 @@ public class JsonFile {
     /*
      * Чтение файла
      */
-    public Map <String, Country[]> readJson(String fileInput) throws JsonParseException, JsonMappingException, IOException
+    public List<Country> readJson(String fileInput) throws JsonParseException, JsonMappingException, IOException
     {
         ObjectMapper mapper = new ObjectMapper();
-        Map <String, Country[]> dataMap = new HashMap <String, Country[]> ();
-        dataMap = mapper.readValue(new File(path+fileInput), Map.class);
+        TypeReference<List<Country>> type = new TypeReference<List<Country>>() {};
+        List<Country> dataMap = mapper.readValue(new File(path+fileInput), type);
         return dataMap;
     }
 }

@@ -1,21 +1,23 @@
 import java.util.Scanner;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+// @JsonDeserialize(using = CountryDeserializer.class)
 public class Country {
+    // @JsonProperty("options.string.name")
     private String name; // Название стран
-    private Product products;
+    // @JsonProperty("options.array.products")
+    private Product[] products;
 
-    Country(String name) {
-        this.name = name;
-    }
-
-    Country() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Вы ввели некоректное занчение\nВведите название страны: ");
-        setName(scanner.nextLine());
-        System.out.println("Вы ввели некоректное занчение\nВведите название страны: ");
-        setProducts();
-        scanner.close();
-    }
+    // Country() {
+    //     Scanner scanner = new Scanner(System.in);
+    //     System.out.println("Вы ввели некоректное занчение\nВведите название страны: ");
+    //     setName(scanner.nextLine());
+    //     System.out.println("Вы ввели некоректное занчение\nВведите название страны: ");
+    //     setProducts();
+    //     scanner.close();
+    // }
 
     public void setName(String name) {
         if (name.isEmpty()) {
@@ -26,15 +28,15 @@ public class Country {
         }
     }
 
-    public void setProducts() {
-        this.products = new Product();
+    public void setProducts(Product[] products) {
+        this.products = products;
     }
 
     public String getName() {
         return name;
     }
 
-    public Product getProducts() {
+    public Product[] getProducts() {
         return products;
     }
 }
