@@ -1,31 +1,50 @@
+import java.util.List;
 import java.util.Scanner;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Product extends Country{
     private String name; // Название товара
     private String category; // Название категории
     private String countryOfOrigin; // Страна-производитель
     private double price; // Цена
-    private Export[] exports; // Из каких стран Экспортируются
+    private List<Export> exports; // Из каких стран Экспортируются
 
-    // Product() {
-    //     Scanner scanner = new Scanner(System.in);
-    //     System.out.println("Введите название товара: ");
-    //     setName(scanner.nextLine());
-    //     System.out.println("Введите название категории: ");
-    //     setCategory(scanner.nextLine());
-    //     System.out.println("Введите страну-производитель:");
-    //     setCountryOfOrigin(new Country());
-    //     System.out.println("Введите цену: ");
-    //     setPrice(scanner.nextDouble());
-    //     scanner.close();
-    // }
+    Product(@JsonProperty("name") String name, @JsonProperty("category") String category,
+    @JsonProperty("price") double price, @JsonProperty("countryOfOrigin") String countryOfOrigin,
+    @JsonProperty("exports") List<Export> exports)
+    {
+        super();
+        this.name = name;
+        this.category = category;
+        this.countryOfOrigin = countryOfOrigin;
+        this.price = price;
+        this.exports = exports;
+    }
 
-    // Product(String name,String category,Country countryOfOrigin, double price) {
-    //     this.name = name;
-    //     this.category = category;
-    //     this.countryOfOrigin = countryOfOrigin;
-    //     this.price = price;
-    // }
+    Product(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("name:");
+        this.name = scanner.nextLine();
+        System.out.println("category:");
+        this.category = scanner.nextLine();
+        System.out.println("countryOfOrigin:");
+        this.countryOfOrigin = scanner.nextLine();
+        System.out.println("price:");
+        this.price = scanner.nextDouble();
+    }
+
+    public String toString() {
+        return "\n\tИмя: "+name+"\n\tКатегория: "+category+"\n\t Страна производитель: "+countryOfOrigin+"\n\tЦена: "+price+"\n\tИз каких стран экспортируются: "+toStringExports();
+    }
+
+    public String toStringExports() {
+        String str = "";
+        for (Export export : exports) {
+            str += export.toString();
+        }
+        return str;
+    }
 
     public void setName(String name) {
         if (name.isEmpty()) {
@@ -58,7 +77,7 @@ public class Product extends Country{
         }
     }
 
-    public void setExports(Export[] export) {
+    public void setExports(List<Export> export) {
         this.exports = export;
     }
 
@@ -79,7 +98,7 @@ public class Product extends Country{
         return price;
     }
 
-    public Export[] getExports() {
+    public List<Export> getExports() {
         return exports;
     }
 }

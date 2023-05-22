@@ -1,23 +1,37 @@
 import java.util.Scanner;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Export extends Product{
     private String date; // Дата
-    private String product; // Продукт
+    private String product = super.getName(); // Продукт
     private String countryImportingGoods; // Cтрана, импортирующей товар
     private int batchVolumeInPieces; // Объем партии в штуках
 
-    // Export() {
-    //     Scanner scanner = new Scanner(System.in);
-    //     System.out.println("Введите дату (dd MM yyyy) Пример: 21 06 2023: ");
-    //     setDate(scanner.nextLine());
-    //     System.out.println("Введите название продукта: ");
-    //     setProduct(new Product());
-    //     System.out.println("Введите страны, импортирующей товар: ");
-    //     setCountryImportingGoods(new Country());
-    //     System.out.println("Введите объем партии в штуках: ");
-    //     setBatchVolumeInPieces(scanner.nextInt());
-    //     scanner.close();
-    // }
+    Export(@JsonProperty("date") String date, @JsonProperty("product") String product,
+    @JsonProperty("countryImportingGoods") String countryImportingGoods, @JsonProperty("batchVolumeInPieces") int batchVolumeInPieces)
+    {
+        super();
+        this.date = date;
+        this.product = product;
+        this.countryImportingGoods = countryImportingGoods;
+        this.batchVolumeInPieces = batchVolumeInPieces;
+    }
+
+    Export(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите дату формата dd MM yyyy (пример 21 06 2002): ");
+        setDate(scanner.nextLine());
+        System.out.println("Введите страну, импортирующию товар: ");
+        setCountryImportingGoods(scanner.nextLine());
+        System.out.println("Введите объём партии в штуках: ");
+        setBatchVolumeInPieces(scanner.nextInt());
+        setProduct(product);
+    }
+
+    public String toString() {
+        return "\n\t\tДата: "+date+";\n\t\tПродукт: "+product+";\n\t\tCтрана, импортирующей товар: "+countryImportingGoods+";\n\t\tОбъем партии в штуках: "+batchVolumeInPieces+";\n";
+    }
 
     public void setDate(String date) {
         if (date.isEmpty()) {
