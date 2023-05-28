@@ -1,12 +1,7 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.exc.StreamReadException;
@@ -80,7 +75,7 @@ public class JsonFile {
     /*
     * Запись в файл
     */
-    public void writeJson(ArrayList<Country> arrayForWrite, String fileOutput) throws IOException, StreamReadException, DatabindException
+    public void writeJson(List<Country> arrayForWrite, String fileOutput) throws IOException, StreamReadException, DatabindException
     {
         ObjectMapper mapper = new ObjectMapper ();	
         mapper.writeValue(new File(path+fileOutput), arrayForWrite);

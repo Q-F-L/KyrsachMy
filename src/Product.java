@@ -1,15 +1,19 @@
 import java.util.List;
 import java.util.Scanner;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Product extends Country{
+@JsonIgnoreProperties({ "products" })
+public class Product{
     private String name; // Название товара
     private String category; // Название категории
     private String countryOfOrigin; // Страна-производитель
     private double price; // Цена
     private List<Export> exports; // Из каких стран Экспортируются
 
+    @JsonCreator
     Product(@JsonProperty("name") String name, @JsonProperty("category") String category,
     @JsonProperty("price") double price, @JsonProperty("countryOfOrigin") String countryOfOrigin,
     @JsonProperty("exports") List<Export> exports)
@@ -22,7 +26,9 @@ public class Product extends Country{
         this.exports = exports;
     }
 
-    Product(){
+    Product(){}
+    
+    Product(int d){ // Параметр ни где не используеться
         Scanner scanner = new Scanner(System.in);
         System.out.println("name:");
         this.name = scanner.nextLine();

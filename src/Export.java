@@ -1,13 +1,17 @@
 import java.util.Scanner;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Export extends Product{
+@JsonIgnoreProperties({ "name", "products", "category", "countryOfOrigin", "price", "exports" })
+public class Export{
     private String date; // Дата
-    private String product = super.getName(); // Продукт
+    private String product; // Продукт
     private String countryImportingGoods; // Cтрана, импортирующей товар
     private int batchVolumeInPieces; // Объем партии в штуках
 
+    @JsonCreator
     Export(@JsonProperty("date") String date, @JsonProperty("product") String product,
     @JsonProperty("countryImportingGoods") String countryImportingGoods, @JsonProperty("batchVolumeInPieces") int batchVolumeInPieces)
     {
@@ -17,8 +21,10 @@ public class Export extends Product{
         this.countryImportingGoods = countryImportingGoods;
         this.batchVolumeInPieces = batchVolumeInPieces;
     }
+    
+    Export(){}
 
-    Export(){
+    Export(String product){ // Параметр ни где не используеться
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите дату формата dd MM yyyy (пример 21 06 2002): ");
         setDate(scanner.nextLine());
@@ -26,7 +32,7 @@ public class Export extends Product{
         setCountryImportingGoods(scanner.nextLine());
         System.out.println("Введите объём партии в штуках: ");
         setBatchVolumeInPieces(scanner.nextInt());
-        setProduct(product);
+        this.product = product;
     }
 
     public String toString() {
